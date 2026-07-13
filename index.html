@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yaxché Serra Madre Glampings · Sierra Gorda, Querétaro</title>
+<meta name="description" content="Glamps privados con jacuzzi, en plena Sierra Gorda Queretana. Desconéctate sin sacrificar comodidad. Reserva por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-selva: #1E3628;
+    --verde-selva-oscuro: #142219;
+    --terracota: #B9663B;
+    --terracota-claro: #D68A5C;
+    --crema: #F1EADA;
+    --crema-suave: #E8DFC8;
+    --madera: #2B2019;
+    --dorado: #B8965A;
+    --salvia: #7C8D6C;
+    --texto-claro: #F1EADA;
+    --texto-oscuro: #221A14;
+
+    --display: 'Fraunces', serif;
+    --cuerpo: 'Work Sans', sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: var(--cuerpo);
+    background: var(--crema);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4{ font-family: var(--display); font-weight: 500; letter-spacing: -0.01em; }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  section{ position: relative; }
+
+  .wrap{ max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+  /* ===== NAV ===== */
+  header.nav{
+    position: fixed; top:0; left:0; right:0; z-index: 100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 20px 32px;
+    background: linear-gradient(to bottom, rgba(20,34,25,0.75), transparent);
+    transition: background .3s ease;
+  }
+  header.nav.scrolled{ background: var(--verde-selva-oscuro); box-shadow: 0 2px 20px rgba(0,0,0,.2); }
+  .logo-mark{
+    display:flex; align-items:center; gap:10px;
+    color: var(--crema); font-family: var(--display); font-size: 1.15rem; font-weight:500; letter-spacing: .02em;
+  }
+  .logo-mark svg{ width:26px; height:26px; }
+  nav.links{ display:flex; gap: 28px; align-items:center; }
+  nav.links a{ color: var(--crema); font-size: .88rem; letter-spacing:.03em; text-transform: uppercase; opacity:.85; }
+  nav.links a:hover{ opacity:1; }
+  .nav-cta{
+    background: var(--terracota); color: var(--crema) !important;
+    padding: 10px 20px; border-radius: 3px; font-weight:500;
+    opacity: 1 !important; text-transform:none !important; letter-spacing:0 !important;
+  }
+  .nav-toggle{ display:none; }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height: 100vh;
+    display:flex; align-items:center;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(184,150,90,.18), transparent 45%),
+      linear-gradient(160deg, var(--verde-selva) 0%, var(--verde-selva-oscuro) 60%, #0f1a12 100%);
+    color: var(--crema);
+    position: relative;
+    padding-top: 90px;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 85% 30%, rgba(184,150,90,.10), transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(217,138,92,.08), transparent 35%);
+  }
+  .hero-canopy{
+    position:absolute; top:0; right:0; width:min(48vw, 620px); height:100%;
+    opacity:.9; pointer-events:none;
+  }
+  .hero-content{ position:relative; z-index:2; max-width: 640px; }
+  .eyebrow{
+    font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--terracota-claro); margin-bottom: 22px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width:26px; height:1px; background: var(--terracota-claro); display:inline-block; }
+  .hero h1{
+    font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.03; font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .hero h1 em{ font-style: italic; color: var(--terracota-claro); font-weight: 400; }
+  .hero p.lead{
+    font-size: 1.15rem; color: rgba(241,234,218,.82); max-width: 500px; margin-bottom: 34px; font-weight:300;
+  }
+  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 15px 30px; border-radius: 3px; font-size: .95rem; font-weight:500;
+    transition: transform .25s ease, background .25s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary{ background: var(--terracota); color: var(--crema); }
+  .btn-primary:hover{ background: var(--terracota-claro); transform: translateY(-2px); }
+  .btn-ghost{ border-color: rgba(241,234,218,.4); color: var(--crema); }
+  .btn-ghost:hover{ border-color: var(--crema); transform: translateY(-2px); }
+
+  .hero-stats{
+    display:flex; gap: 40px; margin-top: 64px; flex-wrap: wrap;
+  }
+  .hero-stats div{ min-width: 110px; }
+  .hero-stats .num{ font-family: var(--display); font-size: 1.8rem; color: var(--terracota-claro); }
+  .hero-stats .label{ font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: rgba(241,234,218,.65); margin-top:4px; }
+
+  .scroll-cue{
+    position:absolute; bottom: 30px; left: 28px; z-index: 2;
+    display:flex; flex-direction: column; align-items:center; gap:8px;
+    color: rgba(241,234,218,.55); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  }
+  .scroll-cue .line{ width:1px; height: 40px; background: linear-gradient(to bottom, rgba(241,234,218,.6), transparent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{opacity:.4} 50%{opacity:1} }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-head{ max-width: 640px; margin-bottom: 56px; }
+  .section-head .eyebrow{ color: var(--terracota); }
+  .section-head .eyebrow::before{ background: var(--terracota); }
+  .section-head h2{ font-size: clamp(2rem, 4vw, 2.8rem); color: var(--madera); }
+  .section-head p{ margin-top: 16px; color: #55483c; font-size: 1.05rem; font-weight:300; max-width: 540px; }
+
+  /* ===== INTRO ===== */
+  .intro{ padding: 120px 0 100px; background: var(--crema); }
+  .intro-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items:start; }
+  .intro-copy p{ color: #4a3f34; margin-bottom: 18px; font-weight:300; font-size: 1.05rem; }
+  .intro-copy strong{ color: var(--verde-selva); font-weight:600; }
+  .not-for{
+    background: var(--crema-suave); border-left: 3px solid var(--terracota);
+    padding: 26px 28px; border-radius: 2px; margin-top: 30px;
+  }
+  .not-for h4{ font-size: 1rem; color: var(--madera); margin-bottom: 10px; font-weight:600; font-family: var(--cuerpo); text-transform:uppercase; letter-spacing:.04em; font-size:.8rem;}
+  .not-for p{ font-size: .92rem; color: #5c4f42; font-weight:300; }
+
+  .amenities-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+  .amenity{ display:flex; gap:12px; align-items:flex-start; }
+  .amenity svg{ flex-shrink:0; width:20px; height:20px; color: var(--terracota); margin-top:2px; }
+  .amenity span{ font-size:.92rem; color:#4a3f34; }
+
+  /* ===== EXPERIENCIAS ===== */
+  .experiencias{ padding: 100px 0; background: var(--verde-selva-oscuro); color: var(--crema); }
+  .experiencias .section-head h2{ color: var(--crema); }
+  .experiencias .section-head p{ color: rgba(241,234,218,.7); }
+  .experiencias .eyebrow{ color: var(--terracota-claro); }
+  .experiencias .eyebrow::before{ background: var(--terracota-claro); }
+
+  .tier-tabs{ display:flex; gap:10px; margin-bottom: 44px; flex-wrap:wrap; }
+  .tier-tab{
+    padding: 10px 20px; border: 1px solid rgba(241,234,218,.25); border-radius: 30px;
+    font-size: .85rem; cursor:pointer; background:transparent; color: rgba(241,234,218,.75);
+    transition: all .2s ease;
+  }
+  .tier-tab.active{ background: var(--terracota); border-color: var(--terracota); color: var(--crema); }
+
+  .glamp-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .glamp-tier{ display:none; }
+  .glamp-tier.active{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .glamp-card{
+    background: rgba(241,234,218,.04); border: 1px solid rgba(241,234,218,.12);
+    border-radius: 4px; padding: 30px 26px; transition: border-color .25s ease, transform .25s ease;
+  }
+  .glamp-card:hover{ border-color: rgba(184,150,90,.5); transform: translateY(-4px); }
+  .glamp-card .tag{ font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color: var(--terracota-claro); margin-bottom:14px; display:block; }
+  .glamp-card h3{ font-size: 1.5rem; margin-bottom: 6px; color: var(--crema); }
+  .glamp-card .cap{ font-size:.85rem; color: rgba(241,234,218,.55); margin-bottom: 18px; }
+  .glamp-card .price{ font-family: var(--display); font-size: 1.9rem; color: var(--dorado); margin-bottom: 4px; }
+  .glamp-card .price small{ font-size: .8rem; font-family: var(--cuerpo); color: rgba(241,234,218,.55); }
+  .glamp-card ul{ list-style:none; margin: 18px 0 22px; padding:0; }
+  .glamp-card ul li{ font-size:.85rem; color: rgba(241,234,218,.75); padding: 5px 0; display:flex; gap:8px; }
+  .glamp-card ul li::before{ content:"—"; color: var(--terracota-claro); }
+  .glamp-card .card-cta{
+    display:inline-flex; align-items:center; gap:8px; font-size:.85rem; color: var(--terracota-claro);
+    border-bottom: 1px solid rgba(217,138,92,.4); padding-bottom:3px;
+  }
+  .glamp-card .card-cta:hover{ color: var(--crema); border-color: var(--crema); }
+
+  .zonas-comunes{ margin-top: 60px; text-align:center; color: rgba(241,234,218,.65); font-size:.92rem; }
+  .zonas-comunes strong{ color: var(--crema); }
+
+  /* ===== UBICACION ===== */
+  .ubicacion{ padding: 100px 0; background: var(--crema); }
+  .ubicacion-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center; }
+  .loc-card{ background: var(--madera); color: var(--crema); border-radius: 4px; padding: 40px; }
+  .loc-card h3{ font-size:1.4rem; margin-bottom: 20px; color: var(--terracota-claro); }
+  .loc-row{ display:flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(241,234,218,.12); }
+  .loc-row:last-child{ border-bottom:none; }
+  .loc-row svg{ width:18px; height:18px; flex-shrink:0; margin-top:3px; color: var(--dorado); }
+  .loc-row div span{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color: rgba(241,234,218,.5); margin-bottom:3px;}
+  .loc-row div p{ font-size:.92rem; color: rgba(241,234,218,.9); }
+  .distancias{ margin-top: 20px; display:grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+  .distancias div{ display:flex; justify-content:space-between; font-size:.85rem; padding: 6px 0; border-bottom: 1px dashed rgba(241,234,218,.1); color: rgba(241,234,218,.8); }
+  .distancias div b{ color: var(--dorado); font-weight:500;}
+
+  .map-link{
+    display:block; margin-top: 24px; text-align:center; background: var(--terracota); color: var(--crema);
+    padding: 14px; border-radius: 3px; font-size:.9rem;
+  }
+
+  .ubicacion-copy h2{ color: var(--madera); font-size: clamp(1.9rem,3.6vw,2.5rem); margin-bottom:20px;}
+  .ubicacion-copy p{ color:#4a3f34; font-weight:300; margin-bottom: 16px; }
+
+  /* ===== FAQ ===== */
+  .faq{ padding: 100px 0; background: var(--crema-suave); }
+  .faq-list{ max-width: 780px; margin: 0 auto; }
+  .faq-item{ border-bottom: 1px solid rgba(43,32,25,.15); }
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding: 22px 0; display:flex; justify-content:space-between; align-items:center;
+    font-family: var(--display); font-size: 1.08rem; color: var(--madera);
+  }
+  .faq-q .icon{ font-size: 1.3rem; color: var(--terracota); transition: transform .25s ease; flex-shrink:0; margin-left: 20px;}
+  .faq-item.open .faq-q .icon{ transform: rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition: max-height .3s ease; }
+  .faq-item.open .faq-a{ max-height: 300px; }
+  .faq-a p{ padding-bottom: 22px; color:#4a3f34; font-weight:300; font-size:.95rem; max-width: 640px; }
+
+  /* ===== POLITICAS BAR ===== */
+  .politicas{ background: var(--verde-selva); color: rgba(241,234,218,.85); padding: 56px 0; }
+  .pol-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+  .pol-item h4{ font-family: var(--cuerpo); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color: var(--terracota-claro); margin-bottom: 10px; }
+  .pol-item p{ font-size: .88rem; font-weight:300; line-height:1.6; }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final{
+    padding: 130px 0; text-align:center; position:relative;
+    background: linear-gradient(160deg, var(--verde-selva-oscuro), #0f1a12);
+    color: var(--crema);
+  }
+  .cta-final h2{ font-size: clamp(2.2rem,5vw,3.4rem); max-width: 640px; margin: 0 auto 20px; }
+  .cta-final p{ color: rgba(241,234,218,.7); max-width: 480px; margin: 0 auto 36px; font-weight:300; }
+  .promo-tag{
+    display:inline-block; margin-top: 30px; font-size:.85rem; color: var(--dorado);
+    border: 1px solid rgba(184,150,90,.4); padding: 10px 20px; border-radius: 30px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{ background: #0f1a12; color: rgba(241,234,218,.55); padding: 50px 0 30px; }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap: 30px; margin-bottom: 30px;}
+  .footer-brand{ font-family: var(--display); color: var(--crema); font-size:1.2rem; }
+  .footer-links{ display:flex; gap: 26px; flex-wrap:wrap; }
+  .footer-links a{ font-size:.85rem; color: rgba(241,234,218,.6); }
+  .footer-links a:hover{ color: var(--terracota-claro); }
+  .footer-bottom{ border-top: 1px solid rgba(241,234,218,.08); padding-top: 22px; font-size:.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float{
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    background: #25D366; color:#fff; width: 58px; height:58px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    transition: transform .2s ease;
+  }
+  .wa-float:hover{ transform: scale(1.08); }
+  .wa-float svg{ width: 28px; height: 28px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px){
+    nav.links{ display:none; }
+    .nav-toggle{ display:block; background:none; border:none; color:var(--crema); font-size:1.6rem; cursor:pointer; }
+    .intro-grid, .ubicacion-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .glamp-grid, .glamp-tier.active{ grid-template-columns: 1fr; }
+    .pol-grid{ grid-template-columns: 1fr; gap: 26px; }
+    .amenities-list{ grid-template-columns: 1fr; }
+    .hero-canopy{ display:none; }
+    .distancias{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <a href="#top" class="logo-mark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z"/><path d="M12 13v9"/></svg>
+    Yaxché · Serra Madre
+  </a>
+  <nav class="links">
+    <a href="#experiencias">Glamps</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#faq">Preguntas</a>
+    <a href="tel:+524871013335" style="opacity:.9;">+52 487 101 3335</a>
+    <a href="#contacto" class="nav-cta">Reservar</a>
+  </nav>
+  <button class="nav-toggle">☰</button>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-content">
+    <div class="eyebrow">Sierra Gorda Queretana · Arroyo Seco</div>
+    <h1>Naturaleza y confort, <em>sin montar nada.</em></h1>
+    <p class="lead">Glamps privados con jacuzzi, baño propio y aire acondicionado, en medio de la sierra. Llegas, te desconectas y el resto ya está listo.</p>
+    <div class="cta-row">
+      <a href="#contacto" class="btn btn-primary">Reservar por WhatsApp →</a>
+      <a href="#experiencias" class="btn btn-ghost">Ver glamps y precios</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="num">7</div><div class="label">Glamps privados</div></div>
+      <div><div class="num">$1,900+</div><div class="label">Por noche</div></div>
+      <div><div class="num">2–6</div><div class="label">Personas por glamp</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Descubre</span><span class="line"></span></div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:26px;">
+        <div class="eyebrow">Sobre Yaxché</div>
+        <h2>Estancias de lujo en la naturaleza, sin sacrificar comodidad</h2>
+      </div>
+      <div class="intro-copy">
+        <p><strong>Yaxché</strong> —árbol de la vida— es un complejo de glamping en plena Sierra Gorda de Querétaro, pensado para quienes buscan descansar de verdad: sin cargar tienda, sin resolver logística, sin perder comodidad.</p>
+        <p>Cada glamp es privado e incluye <strong>jacuzzi, baño y regadera propios, aire acondicionado, asador y frigobar</strong>. Las áreas comunes —alberca, palapa y fogata— son de uso exclusivo para huéspedes.</p>
+        <p>Ideal para parejas, familias pequeñas y celebraciones. No somos un hotel tradicional: aquí no hay restaurante ni personal de servicio constante — hay privacidad, silencio y sierra.</p>
+      </div>
+      <div class="not-for">
+        <h4>Yaxché es ideal si buscas</h4>
+        <p>Desconexión real, contacto con la naturaleza y privacidad. Si prefieres un hotel con servicio constante, restaurante en sitio o accesos totalmente planos, probablemente no sea tu mejor opción — y preferimos decírtelo antes de que reserves.</p>
+      </div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:22px;">
+        <div class="eyebrow">Cada glamp incluye</div>
+      </div>
+      <div class="amenities-list">
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="10" width="18" height="9" rx="1"/><path d="M5 10V7a3 3 0 013-3h0"/></svg><span>Jacuzzi privado de uso exclusivo</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M6 12V6a2 2 0 012-2h8a2 2 0 012 2v6M4 18h16"/></svg><span>Baño y regadera privados con agua caliente</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15a4 4 0 014-4h10a4 4 0 014 4v2H3v-2z"/><path d="M6 11V8a2 2 0 012-2h8a2 2 0 012 2v3"/></svg><span>Aire acondicionado autorregulable</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg><span>Asador y frigobar</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg><span>Acceso a alberca, palapa y fogata</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg><span>Ropa de cama incluida</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V8l7-5 7 5v13"/></svg><span>Estacionamiento exclusivo</span></div>
+        <div class="amenity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/></svg><span>Red 4G de Telcel en el complejo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experiencias" id="experiencias">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Glamps y tarifas</div>
+      <h2>Elige tu experiencia</h2>
+      <p>Precios por noche, no por persona. Todos incluyen acceso a alberca, palapa y fogata.</p>
+    </div>
+
+    <div class="tier-tabs">
+      <button class="tier-tab active" data-tier="vip">Cama King VIP · $2,999</button>
+      <button class="tier-tab" data-tier="king">Cama King · $2,499</button>
+      <button class="tier-tab" data-tier="queen">Cama Queen · $1,900</button>
+    </div>
+
+    <div class="glamp-tier active" data-tier="vip">
+      <div class="glamp-card">
+        <span class="tag">2–4 personas</span>
+        <h3>Valhalla VIP</h3>
+        <div class="cap">Cama King · 2 sofás cama · sala privada</div>
+        <div class="price">$2,999 <small>/ noche</small></div>
+        <ul>
+          <li>TV y electrodomésticos (cafetera, microondas)</li>
+          <li>Cristalería y platos</li>
+          <li>Jacuzzi, baño y regadera privados</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+      <div class="glamp-card">
+        <span class="tag">2–4 personas</span>
+        <h3>Ziran VIP</h3>
+        <div class="cap">Cama King · 2 sofás cama · sala privada</div>
+        <div class="price">$2,999 <small>/ noche</small></div>
+        <ul>
+          <li>TV y electrodomésticos (cafetera, microondas)</li>
+          <li>Cristalería y platos</li>
+          <li>Jacuzzi, baño y regadera privados</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+      <div class="glamp-card">
+        <span class="tag">2–4 personas</span>
+        <h3>Samadhi VIP</h3>
+        <div class="cap">Cama King · 2 sofás cama · sala privada</div>
+        <div class="price">$2,999 <small>/ noche</small></div>
+        <ul>
+          <li>TV y electrodomésticos (cafetera, microondas)</li>
+          <li>Cristalería y platos</li>
+          <li>Jacuzzi, baño y regadera privados</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+    </div>
+
+    <div class="glamp-tier" data-tier="king">
+      <div class="glamp-card">
+        <span class="tag">2–4 personas</span>
+        <h3>Nirvana</h3>
+        <div class="cap">Cama King · 2 sofás cama</div>
+        <div class="price">$2,499 <small>/ noche</small></div>
+        <ul>
+          <li>Jacuzzi, baño y regadera privados</li>
+          <li>Aire acondicionado, asador y frigobar</li>
+          <li>Sin sala privada ni electrodomésticos (diferencia con VIP)</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+      <div class="glamp-card">
+        <span class="tag">2–4 personas</span>
+        <h3>Samsara</h3>
+        <div class="cap">Cama King · 2 sofás cama</div>
+        <div class="price">$2,499 <small>/ noche</small></div>
+        <ul>
+          <li>Jacuzzi, baño y regadera privados</li>
+          <li>Aire acondicionado, asador y frigobar</li>
+          <li>Sin sala privada ni electrodomésticos (diferencia con VIP)</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+    </div>
+
+    <div class="glamp-tier" data-tier="queen">
+      <div class="glamp-card">
+        <span class="tag">2 adultos + 1 niño (máx. 5 años)</span>
+        <h3>Edén</h3>
+        <div class="cap">Cama Queen a nivel de piso · 2 sofás cama</div>
+        <div class="price">$1,900 <small>/ noche</small></div>
+        <ul>
+          <li>Jacuzzi, baño y regadera privados</li>
+          <li>Ideal para parejas — no recomendado para adultos mayores</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+      <div class="glamp-card">
+        <span class="tag">2 adultos + 1 niño (máx. 5 años)</span>
+        <h3>B'alam</h3>
+        <div class="cap">Cama Queen a nivel de piso · 2 sofás cama</div>
+        <div class="price">$1,900 <small>/ noche</small></div>
+        <ul>
+          <li>Jacuzzi, baño y regadera privados</li>
+          <li>Ideal para parejas — no recomendado para adultos mayores</li>
+        </ul>
+        <a href="#contacto" class="card-cta">Consultar disponibilidad →</a>
+      </div>
+    </div>
+
+    <div class="zonas-comunes">Persona extra: <strong>$600 MXN/noche</strong> (máx. 2, hasta 6 personas por glamp) · Mascotas: <strong>$300 MXN/noche</strong>, con correa</div>
+  </div>
+</section>
+
+<section class="ubicacion" id="ubicacion">
+  <div class="wrap ubicacion-grid">
+    <div class="ubicacion-copy">
+      <div class="eyebrow" style="color:var(--terracota);">Cómo llegar</div>
+      <h2>A pie de carretera, en el corazón de la Sierra Gorda</h2>
+      <p>Miguel Hidalgo SN, Poblado Las Trancas, Arroyo Seco, Querétaro. A 5 minutos de Concá y 35 de Jalpan, sobre la carretera San Juan del Río–Xilitla.</p>
+      <p>Vas a ver una casita blanca sobre la carretera — esa es la entrada. El estacionamiento está al fondo. Estamos a unos metros de "Abarrotes Chelo".</p>
+      <a href="https://maps.app.goo.gl/5BT11DRwJ2EQQrgc7" target="_blank" class="btn btn-primary" style="display:inline-flex;">Abrir ubicación en Maps →</a>
+    </div>
+    <div class="loc-card">
+      <h3>Check-in / Check-out</h3>
+      <div class="loc-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><span>Check-in</span><p>3:00 p.m. – 5:00 p.m. (avisando, con costo se puede más tarde)</p></div>
+      </div>
+      <div class="loc-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><span>Check-out</span><p>11:00 a.m. (extensión disponible con costo hasta 3:00 p.m.)</p></div>
+      </div>
+      <div class="loc-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/></svg>
+        <div><span>Reserva</span><p>50% de anticipo, resto al hacer check-in</p></div>
+      </div>
+      <div class="loc-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div><span>Teléfono / WhatsApp</span><p><a href="tel:+524871013335" style="color:var(--crema);">+52 487 101 3335</a></p></div>
+      </div>
+      <h3 style="margin-top:24px;">Distancias</h3>
+      <div class="distancias">
+        <div>Jalpan <b>30 min</b></div>
+        <div>Concá <b>5 min</b></div>
+        <div>Río Verde <b>1 h</b></div>
+        <div>Querétaro <b>3.5 h</b></div>
+        <div>San Juan del Río <b>3 h</b></div>
+        <div>San Luis Potosí <b>3.5 h</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head" style="margin: 0 auto 50px; text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Antes de reservar</div>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-q">¿Cada glamp tiene baño y jacuzzi privado?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Sí. Cada glamp cuenta con baño, regadera con agua caliente y jacuzzi de uso exclusivo — no se comparte con otros huéspedes.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Hay señal o wifi?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Hay red 4G de Telcel en el complejo (puede fallar si se va la luz). No tenemos wifi abierto, pero en casos especiales podemos compartir el de recepción.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Puedo llevar comida o hay restaurante?<span class="icon">+</span></button>
+        <div class="faq-a"><p>No hay restaurante en el complejo. Cada glamp tiene asador y frigobar; te recomendamos traer lo que necesites. A 5 minutos caminando hay un restaurante de guisos, y a 10 min en coche más opciones.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Aceptan mascotas?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Sí, con un costo de $300 MXN por noche por mascota. Deben mantenerse con correa y traer su propia camita — es responsabilidad de los dueños.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Podemos ser más de 4 personas en un glamp King o VIP?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Sí, hasta 2 personas extra (máximo 6 en total), con un costo adicional de $600 MXN por persona por noche.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo funciona el pago y con cuánta anticipación reservo?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Se aparta con 50% de anticipo (transferencia, liga de pago o Airbnb) y el resto se paga al check-in. Recomendamos reservar al menos 3 semanas antes, sobre todo para fines de semana.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Puedo cancelar o cambiar mi fecha?<span class="icon">+</span></button>
+        <div class="faq-a"><p>No hay reembolsos una vez confirmada la reserva. El cambio de fecha es gratuito con 7+ días de anticipación (con menos, tiene costo de $300); con menos de 72 horas o no-show se pierde el anticipo.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="politicas">
+  <div class="wrap pol-grid">
+    <div class="pol-item">
+      <h4>Qué llevar</h4>
+      <p>Toallas propias y una cobija extra — la noche puede refrescar en la sierra.</p>
+    </div>
+    <div class="pol-item">
+      <h4>Clima</h4>
+      <p>Cálido casi todo el año. Calor fuerte de abril a junio, lluvias en jul-ago, más fresco de sep a feb.</p>
+    </div>
+    <div class="pol-item">
+      <h4>Silencio</h4>
+      <p>Horario de silencio de 11:00 p.m. a 7:00 a.m., por respeto a todos los huéspedes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contacto">
+  <div class="wrap">
+    <h2>¿Listo para desconectarte?</h2>
+    <p>Cuéntanos tus fechas y cuántos son — te confirmamos disponibilidad y te ayudamos a elegir el glamp ideal.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a href="https://wa.me/524871013335?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Yax%20ch%C3%A9" target="_blank" class="btn btn-primary">Escribir por WhatsApp →</a>
+      <a href="tel:+524871013335" class="btn btn-ghost">📞 +52 487 101 3335</a>
+      <a href="https://www.instagram.com/serramadreyaxcheglampings" target="_blank" class="btn btn-ghost">Ver Instagram</a>
+    </div>
+    <div class="promo-tag">🌿 Menciona "Qronauta Yaxché" y obtén 10% de descuento</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">Yaxché · Serra Madre Glampings</div>
+      <div class="footer-links">
+        <a href="tel:+524871013335">📞 +52 487 101 3335</a>
+        <a href="https://wa.me/524871013335" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/serramadreyaxcheglampings" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/share/1HEVnYMwR7/?mibextid=wwXIfr" target="_blank">Facebook</a>
+        <a href="https://www.tiktok.com/@yaxcheserramadre" target="_blank">TikTok</a>
+        <a href="https://www.airbnb.mx/rooms/1365634053415152425" target="_blank">Airbnb</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yaxché Serra Madre Glampings · Arroyo Seco, Querétaro</span>
+      <span>Sierra Gorda Queretana</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/524871013335?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Yax%20ch%C3%A9" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.94.57 3.75 1.55 5.27L2 22l4.97-1.63a9.87 9.87 0 004.87 1.28h.01c5.46 0 9.9-4.45 9.9-9.91C21.75 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.1.11-1.77-.11-.4-.13-.92-.3-1.58-.6-2.79-1.2-4.6-4.02-4.74-4.2-.14-.18-1.13-1.5-1.13-2.87 0-1.36.71-2.02.97-2.3.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.58.79 2 .86 2.15.07.15.12.32.02.5-.1.19-.16.3-.3.47-.15.16-.31.36-.44.48-.15.14-.3.29-.13.58.17.28.76 1.26 1.63 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.05.18-.19.75-.86.94-1.16.2-.3.4-.24.66-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+</a>
+
+<script>
+  // Scroll nav bg
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Tabs glamps
+  document.querySelectorAll('.tier-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const t = tab.dataset.tier;
+      document.querySelectorAll('.tier-tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.glamp-tier').forEach(x=>x.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.glamp-tier[data-tier="'+t+'"]').classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
